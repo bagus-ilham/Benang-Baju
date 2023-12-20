@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Shire Blouse",
+    "totalSales": 10,
+    "size": "M",
+    "color": "blue",
+    "stock": 50,
+    "price": 120000,
+    "imgUrl": "",
+    "description": "A stylish blue blouse designed for comfort and elegance. Perfect for casual outings and can be paired with various accessories for a chic look.",
+    "IdCategory": 8,
+    "IdUser": 1
+  },
+  {
+    "name": "Textura Two Ways",
+    "totalSales": 25,
+    "size": "L",
+    "color": "green",
+    "stock": 30,
+    "price": 280000,
+    "imgUrl": "",
+    "description": "This green top offers versatility with its two-way design. Whether you prefer a casual or formal look, this top adapts to your style seamlessly.",
+    "IdCategory": 2,
+    "IdUser": 1
+  },
+  {
+    "name": "Plain Shirt",
+    "totalSales": 15,
+    "size": "S",
+    "color": "yellow",
+    "stock": 20,
+    "price": 150000,
+    "imgUrl": "",
+    "description": "A yellow shirt that stands out for its simplicity and comfort. Ideal for everyday wear, ensuring you look fresh and trendy.",
+    "IdCategory": 2,
+    "IdUser": 1
+  },
+  {
+    "name": "Renown Warp Skirt",
+    "totalSales": 30,
+    "size": "XL",
+    "color": "black",
+    "stock": 10,
+    "price": 270000,
+    "imgUrl": "",
+    "description": "A black warp skirt known for its unique design and comfort. It provides flexibility in styling, making it a must-have for fashion-forward individuals.",
+    "IdCategory": 6,
+    "IdUser": 1
+  },
+  {
+    "name": "Hazy Shirt",
+    "totalSales": 20,
+    "size": "M",
+    "color": "purple",
+    "stock": 40,
+    "price": 130000,
+    "imgUrl": "",
+    "description": "Embrace elegance with this purple shirt that exudes sophistication. Its soft fabric ensures comfort while its color adds a touch of luxury to your ensemble.",
+    "IdCategory": 2,
+    "IdUser": 1
+  },
+  {
+    "name": "Ritzy Pants",
+    "totalSales": 18,
+    "size": "S",
+    "color": "orange",
+    "stock": 25,
+    "price": 290000,
+    "imgUrl": "",
+    "description": "These orange pants redefine style with their vibrant hue and impeccable fit. Ideal for making a bold fashion statement wherever you go.",
+    "IdCategory": 3,
+    "IdUser": 1
+  },
+  {
+    "name": "Ruth Shirt",
+    "totalSales": 22,
+    "size": "L",
+    "color": "pink",
+    "stock": 15,
+    "price": 110000,
+    "imgUrl": "",
+    "description": "A pink shirt that radiates charm and grace. Its subtle design elements make it a versatile piece suitable for various occasions.",
+    "IdCategory": 2,
+    "IdUser": 1
+  },
+  {
+    "name": "Cherry Pants",
+    "totalSales": 12,
+    "size": "XL",
+    "color": "brown",
+    "stock": 35,
+    "price": 260000,
+    "imgUrl": "",
+    "description": "Flaunt your style with these brown pants that offer both comfort and a contemporary look. Pair them with your favorite tops for a complete ensemble.",
+    "IdCategory": 3,
+    "IdUser": 1
+  },
+  {
+    "name": "Hollow Vest",
+    "totalSales": 28,
+    "size": "M",
+    "color": "cyan",
+    "stock": 22,
+    "price": 140000,
+    "imgUrl": "",
+    "description": "This cyan-colored vest is all about combining style with comfort. Its design ensures you stay on-trend while feeling at ease throughout the day.",
+    "IdCategory": 4,
+    "IdUser": 1
+  },
+  {
+    "name": "Jolly Shirt",
+    "totalSales": 24,
+    "size": "L",
+    "color": "gray",
+    "stock": 18,
+    "price": 250000,
+    "imgUrl": "",
+    "description": "A gray shirt that captures attention with its design and fit. Whether it's a day at work or a casual outing, this shirt ensures you're always in vogue.",
+    "IdCategory": 2,
+    "IdUser": 1
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "email": "pulu@index.co",
+    "password": "pulupulu",
+    "role": "admin"
+  },
+  {
+    "email": "pulu@gmail.com",
+    "password": "pulupulu",
+    "role": "user"
+  },
+  {
+    "email": "pulu2@gmail.com",
+    "password": "pulupulu",
+    "role": "user"
+  }
+]

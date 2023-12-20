@@ -1,0 +1,20 @@
+[
+    {
+      "firstName": "pulu",
+      "lastName": "pulu",
+      "address": "Depok",
+      "IdUser": 1
+    },
+    {
+        "firstName": "pulu",
+        "lastName": "user",
+        "address": "Bogor",
+        "IdUser": 2
+    },
+    {
+        "firstName": "pulu2",
+        "lastName": "user2",
+        "address": "Jakarta",
+        "IdUser": 3
+    }
+  ]
