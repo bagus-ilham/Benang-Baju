@@ -127,6 +127,8 @@ class Controller {
       res.send(error);
     }
   }
+
+  static async 
 }
 
 module.exports = Controller;

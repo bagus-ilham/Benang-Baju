@@ -17,12 +17,12 @@ router.get("/", Controller.landingPage);
 router.get("/product", Controller.products);
 router.get("/product/:productId", Controller.productId);
 router.get("/profile", Controller.profile);
-router.get("/profile/:profileid/edit");
-router.post("/profile/:profileid/edit");
-router.get("/profile/:profileid/addProduct");
-router.post("/profile/:profileid/addProduct");
+// router.get("/profile/:profileid/edit", Controller.editProfile);
+// router.post("/profile/:profileid/edit", Controller.editProfileRedirect);
+// router.get("/profile/:profileid/addProduct", Controller.addProduct);
+// router.post("/profile/:profileid/addProduct", Controller.addProduct);
 router.get("/cart", loggedIn, Controller.cart);
-router.get("/cart/delete")
+// router.get("/cart/delete", Controller.delete)
 router.get("/login", loggedIn, Controller.login);
 router.post("/login", loggedIn, Controller.loginProccess);
 router.get("/register", loggedIn, Controller.register);
