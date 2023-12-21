@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Profile.belongsTo(models.User, {foreignKey: "IdUser"})
-      Profile.hasMany(models.ProductHasProfile, { foreignKey: "IdProfile" });
+      // Profile.hasMany(models.ProductHasProfile, { foreignKey: "IdProfile" });
+      Profile.belongsToMany(models.Product, {through: "ProductHasProfile", foreignKey : "IdProduct"})
     }
 
     static fullName(firstName, lastName) {

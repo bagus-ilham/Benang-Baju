@@ -1,4 +1,4 @@
-const { Product, User, Profile, Category } = require("../models");
+const { Product, User, Profile, Category, ProductHasProfile } = require("../models");
 const bcrypt = require("bcryptjs");
 
 class Controller {
@@ -32,7 +32,7 @@ class Controller {
           id: paramsId,
         },
       });
-      res.render("ProductId", { user });
+      res.render("ProductId", { data, user });
     } catch (error) {
       res.send(error);
     }
@@ -57,6 +57,7 @@ class Controller {
   static async cart(req, res) {
     try {
       let user = req.session.userId;
+      // console.log(user);
       let data = await ProductHasProfile.findAll({
         include: [
           {
@@ -70,11 +71,14 @@ class Controller {
             IdProfile: user
         }
       });
-      console.log(data);
-      res.send(data);
-      //   res.render("Cart", { user });
+      // console.log(data, "data");
+      // console.log(data[0].Profile, "profile");
+      // console.log(data[0].Product, "product");
+      // res.send(data)
+        res.render("Cart", { data, user });
     } catch (error) {
-      res.send(error);
+      console.log(error);
+      res.status(500).send('Internal Server Error');
     }
   }
 

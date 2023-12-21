@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
         Product.belongsTo(models.Category, {foreignKey: "IdCategory"})
-        Product.hasMany(models.ProductHasProfile, { foreignKey: "IdProduct" });
+        // Product.hasMany(models.ProductHasProfile, { foreignKey: "IdProduct" });
+        Product.belongsToMany (models.Profile, {through: "ProductHasProfile", foreignKey : "IdProfile"})
     }
 
     get formatAngka() {
