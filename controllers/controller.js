@@ -39,9 +39,17 @@ class Controller {
         }
     }
 
-    static async landingPage(req, res) {
+    static async login(req, res) {
         try {
-            res.render("LandingPage")
+            res.render("Login")
+        } catch (error) {
+            res.send(error);
+        }
+    }
+
+    static async register(req, res) {
+        try {
+            res.render("Register")
         } catch (error) {
             res.send(error);
         }
