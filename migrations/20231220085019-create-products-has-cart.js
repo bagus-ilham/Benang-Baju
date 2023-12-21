@@ -16,10 +16,10 @@ module.exports = {
           key: "id"
         }
       },
-      IdCart: {
+      IdProfile: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Carts",
+          model: "Profiles",
           key: "id"
         }
       },
