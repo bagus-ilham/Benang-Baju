@@ -1,11 +1,11 @@
-const { Product, User } = require("../models");
+const { Product, User, Profile } = require("../models");
 const bcrypt = require("bcryptjs");
 
 class Controller {
   static async landingPage(req, res) {
     try {
-        let user = req.session.userId;
-      res.render("LandingPage", {user});
+      let user = req.session.userId;
+      res.render("LandingPage", { user });
     } catch (error) {
       res.send(error);
       console.log(error);
@@ -15,8 +15,9 @@ class Controller {
   static async products(req, res) {
     try {
       let data = await Product.findAll();
+      let user = req.session.userId;
       // res.send(data);
-      res.render("HomeProduct", { data });
+      res.render("HomeProduct", { data, user });
     } catch (error) {
       res.send(error);
     }
@@ -25,12 +26,13 @@ class Controller {
   static async productId(req, res) {
     try {
       let paramsId = req.params.productId;
+      let user = req.session.userId;
       let data = await Product.findOne({
         where: {
           id: paramsId,
         },
       });
-      res.render("ProductId");
+      res.render("ProductId", { user });
     } catch (error) {
       res.send(error);
     }
@@ -38,7 +40,15 @@ class Controller {
 
   static async profile(req, res) {
     try {
-      res.render("ProvileId");
+      let user = req.session.userId;
+      let data = await Profile.findOne({
+        include : User,
+        where : {
+            IdUser : user
+        }
+      })
+      let fullName = Profile.fullName(data.firstName, data.lastName);
+      res.render("ProvileId", { user, data, fullName });
     } catch (error) {
       res.send(error);
     }
@@ -46,7 +56,8 @@ class Controller {
 
   static async cart(req, res) {
     try {
-      res.render("Cart");
+      let user = req.session.userId;
+      res.render("Cart", { user });
     } catch (error) {
       res.send(error);
     }
@@ -54,7 +65,8 @@ class Controller {
 
   static async login(req, res) {
     try {
-      res.render("Login");
+      let user = req.session.userId;
+      res.render("Login", { user });
     } catch (error) {
       res.send(error);
     }
@@ -79,8 +91,7 @@ class Controller {
       } else {
         res.redirect("/login?error=Email Tidak Terdaftar");
       }
-      console.log(result);
-      console.log(req.session, `=====`, emailBody, `-=======`, password);
+      console.log(req.session);
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -89,7 +100,29 @@ class Controller {
 
   static async register(req, res) {
     try {
-      res.render("Register");
+      let user = req.session.userId;
+      res.render("Register", { user });
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
+  static async registered(req, res) {
+    try {
+        let user = req.session.userId;
+        let data = req.body;
+        await User.create(data);
+        res.redirect('/')
+        // console.log(data);
+    } catch (error) {
+        res.send(error)
+    }
+  }
+
+  static async logout(req, res) {
+    try {
+      await req.session.destroy();
+      res.redirect("/");
     } catch (error) {
       res.send(error);
     }

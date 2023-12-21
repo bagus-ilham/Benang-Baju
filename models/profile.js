@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Profile.belongsTo(models.User, {foreignKey: "IdUser"})
     }
+
+    static fullName(firstName, lastName) {
+      return `${firstName} ${lastName}`;
+    }
   }
   Profile.init({
     firstName: DataTypes.STRING,
