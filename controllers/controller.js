@@ -38,6 +38,16 @@ class Controller {
 
   static async profile(req, res) {
     try {
+        req.session.userId
+
+        // let data profile.findOne({
+        //     include : user,
+        //     while : { IdUser : req}
+        // })
+
+        // if (condition) {
+            
+        // }
       res.render("ProvileId");
     } catch (error) {
       res.send(error);
