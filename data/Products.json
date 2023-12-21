@@ -6,7 +6,7 @@
     "color": "blue",
     "stock": 50,
     "price": 120000,
-    "imgUrl": "",
+    "imgUrl": "https://down-id.img.susercontent.com/file/sg-11134201-22110-rq2eobd75sjv51",
     "description": "A stylish blue blouse designed for comfort and elegance. Perfect for casual outings and can be paired with various accessories for a chic look.",
     "IdCategory": 8,
     "IdUser": 1
@@ -18,7 +18,7 @@
     "color": "green",
     "stock": 30,
     "price": 280000,
-    "imgUrl": "",
+    "imgUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98s-loi930mfdo1z6e",
     "description": "This green top offers versatility with its two-way design. Whether you prefer a casual or formal look, this top adapts to your style seamlessly.",
     "IdCategory": 2,
     "IdUser": 1
@@ -30,7 +30,7 @@
     "color": "yellow",
     "stock": 20,
     "price": 150000,
-    "imgUrl": "",
+    "imgUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98s-loi930mfdo1z6e",
     "description": "A yellow shirt that stands out for its simplicity and comfort. Ideal for everyday wear, ensuring you look fresh and trendy.",
     "IdCategory": 2,
     "IdUser": 1
@@ -42,7 +42,7 @@
     "color": "black",
     "stock": 10,
     "price": 270000,
-    "imgUrl": "",
+    "imgUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul1-ljh52puxtgig5f",
     "description": "A black warp skirt known for its unique design and comfort. It provides flexibility in styling, making it a must-have for fashion-forward individuals.",
     "IdCategory": 6,
     "IdUser": 1
@@ -54,7 +54,7 @@
     "color": "purple",
     "stock": 40,
     "price": 130000,
-    "imgUrl": "",
+    "imgUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul0-lj74nocyat1y07",
     "description": "Embrace elegance with this purple shirt that exudes sophistication. Its soft fabric ensures comfort while its color adds a touch of luxury to your ensemble.",
     "IdCategory": 2,
     "IdUser": 1
@@ -66,7 +66,7 @@
     "color": "orange",
     "stock": 25,
     "price": 290000,
-    "imgUrl": "",
+    "imgUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-ll4qbz9vnlnt46",
     "description": "These orange pants redefine style with their vibrant hue and impeccable fit. Ideal for making a bold fashion statement wherever you go.",
     "IdCategory": 3,
     "IdUser": 1
@@ -78,33 +78,21 @@
     "color": "pink",
     "stock": 15,
     "price": 110000,
-    "imgUrl": "",
+    "imgUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98p-ll4qbz9vnlpn1a",
     "description": "A pink shirt that radiates charm and grace. Its subtle design elements make it a versatile piece suitable for various occasions.",
     "IdCategory": 2,
     "IdUser": 1
   },
   {
-    "name": "Cherry Pants",
+    "name": "Cherry Shirt",
     "totalSales": 12,
     "size": "XL",
     "color": "brown",
     "stock": 35,
     "price": 260000,
-    "imgUrl": "",
-    "description": "Flaunt your style with these brown pants that offer both comfort and a contemporary look. Pair them with your favorite tops for a complete ensemble.",
+    "imgUrl": "https://down-id.img.susercontent.com/file/sg-11134201-22100-5rmhla9lypivb8",
+    "description": "Flaunt your style with these brown shirt that offer both comfort and a contemporary look. Pair them with your favorite tops for a complete ensemble.",
     "IdCategory": 3,
-    "IdUser": 1
-  },
-  {
-    "name": "Hollow Vest",
-    "totalSales": 28,
-    "size": "M",
-    "color": "cyan",
-    "stock": 22,
-    "price": 140000,
-    "imgUrl": "",
-    "description": "This cyan-colored vest is all about combining style with comfort. Its design ensures you stay on-trend while feeling at ease throughout the day.",
-    "IdCategory": 4,
     "IdUser": 1
   },
   {
@@ -114,7 +102,7 @@
     "color": "gray",
     "stock": 18,
     "price": 250000,
-    "imgUrl": "",
+    "imgUrl": "https://down-id.img.susercontent.com/file/81e92d24ea0e43c5ce33d8fd56a2e9cf",
     "description": "A gray shirt that captures attention with its design and fit. Whether it's a day at work or a casual outing, this shirt ensures you're always in vogue.",
     "IdCategory": 2,
     "IdUser": 1

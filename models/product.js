@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const formatRupiah = require("../helpers/helper");
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     /**
@@ -9,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       
+    }
+
+    get formatAngka() {
+      return formatRupiah(this.price)
     }
   }
   Product.init(
