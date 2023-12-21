@@ -15,6 +15,14 @@ class Controller {
         }
     }
 
+    static async productId(req, res) {
+        try {
+            res.render("ProductId")
+        } catch (error) {
+            res.send(error);
+        }
+    }
+
     static async profile(req, res) {
         try {
             res.render("ProvileId")
