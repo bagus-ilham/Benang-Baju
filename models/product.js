@@ -8,21 +8,63 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      
-    }
+    static associate(models) {}
 
     get formatAngka() {
-      return formatRupiah(this.price)
+      return formatRupiah(this.price);
     }
   }
   Product.init(
     {
-      name: DataTypes.STRING,
-      totalSales: DataTypes.INTEGER,
-      size: DataTypes.INTEGER,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: `Nama tidak boleh kosong!`,
+          },
+          notEmpty: `Nama tidak boleh kosong!`,
+        },
+      },
+      totalSales: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Stock tidak boleh kosong!",
+          },
+          notEmpty: {
+            msg: `Stock tidak boleh kosong!`,
+          },
+          
+        },
+      },
+      size: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Stock tidak boleh kosong!",
+          },
+          notEmpty: {
+            msg: `Stock tidak boleh kosong!`,
+          },
+        },
+      },
       color: DataTypes.STRING,
-      stock: DataTypes.INTEGER,
+      stock: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Stock tidak boleh kosong!",
+          },
+          notEmpty: {
+            msg: `Stock tidak boleh kosong!`,
+          },
+          min: 1,
+        },
+      },
       price: DataTypes.INTEGER,
       imgUrl: DataTypes.STRING,
       description: DataTypes.STRING,

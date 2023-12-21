@@ -18,6 +18,13 @@ module.exports = (sequelize, DataTypes) => {
       role: DataTypes.STRING,
     },
     {
+        hooks: {
+            afterCreate: async (value, options) => {
+                await sequelize.models.profile.create({
+                    IdUser: value.id
+                })
+            }
+        },
       sequelize,
       modelName: "User",
     }
