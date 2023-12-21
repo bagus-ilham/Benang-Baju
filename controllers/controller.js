@@ -3,17 +3,19 @@ const { Product } = require('../models');
 class Controller {
     static async landingPage(req, res) {
         try {
-            let data = await Product.findAll();
-            res.send(data);
-            // res.render("LandingPage")
+
+            res.render("LandingPage")
         } catch (error) {
             res.send(error);
+            console.log(error)
         }
     }
 
     static async products(req, res) {
         try {
-            res.render("HomeProduct")
+          let data = await Product.findAll();
+          // res.send(data);
+          res.render("HomeProduct", {data});
         } catch (error) {
             res.send(error);
         }
@@ -21,6 +23,12 @@ class Controller {
 
     static async productId(req, res) {
         try {
+            let paramsId = req.params.productId;
+            let data = await Product.findOne({
+                where: {
+                    id: paramsId
+                }
+            })
             res.render("ProductId")
         } catch (error) {
             res.send(error);
