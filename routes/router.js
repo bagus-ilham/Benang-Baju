@@ -26,6 +26,7 @@ router.get("/cart/delete")
 router.get("/login", loggedIn, Controller.login);
 router.post("/login", loggedIn, Controller.loginProccess);
 router.get("/register", loggedIn, Controller.register);
-router.get("/logout")
+router.post("/register", Controller.registered)
+router.get("/logout", Controller.logout)
 
 module.exports = router;
