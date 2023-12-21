@@ -1,36 +1,73 @@
-<%- include("../partials/_header") %>
+<%- include("./partials/_header") %>
 
 <form action="" method="post">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Name Product"
+      name="name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="size">Size</label>
+    <select class="form-control" name="size">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+  </div>
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" placeholder="Name Product" name="name">
-    </div>
-    <div class="form-group">
-      <label for="size">size</label>
-      <select class="form-control" name="size">
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-      </select>
-    </div>
-    <div class="form-group">
-        <label for="color">Color</label>
-        <input type="text" class="form-control" placeholder="Color Product" name="color">
-      </div>
-      <div class="form-group">
-        <label for="price">Price</label>
-        <input type="text" class="form-control" placeholder="Price Product" name="price">
-      </div>
-      <div class="form-group">
-        <label for="imgUrl">imgUrl</label>
-        <input type="text" class="form-control" placeholder="imgUrl Product" name="imgUrl">
-      </div>
-    <div class="form-group">
-      <label for="description">Example textarea</label>
-      <textarea class="form-control" rows="3" name="description"></textarea>
-    </div>
-    <button class="btn btn-secondary" type="submit">Submit</button>
-  </form>
+    <label for="IdCategory">Category</label>
+    <select class="form-control" name="IdCategory">
+      <% data.forEach(el => { %>
+        <option value="<%= el.id %>"><%= el.name %></option>
+      <% }) %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="color">Color</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Color Product"
+      name="color"
+    />
+  </div>
+  <div class="form-group">
+    <label for="stock">Stock</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Stock Product"
+      name="stock"
+    />
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Price Product"
+      name="price"
+    />
+  </div>
+  <div class="form-group">
+    <label for="imgUrl">imgUrl</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="imgUrl Product"
+      name="imgUrl"
+    />
+  </div>
+  <div class="form-group">
+    <label for="description">Example textarea</label>
+    <textarea class="form-control" rows="3" name="description"></textarea>
+  </div>
+  <button class="btn btn-secondary" type="submit">Submit</button>
+</form>
 
-<%- include("../partials/_footer") %>
+<%- include("./partials/_footer") %>

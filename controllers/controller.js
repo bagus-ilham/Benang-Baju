@@ -1,4 +1,4 @@
-const { Product, User, Profile } = require("../models");
+const { Product, User, Profile, Category } = require("../models");
 const bcrypt = require("bcryptjs");
 
 class Controller {
@@ -42,11 +42,11 @@ class Controller {
     try {
       let user = req.session.userId;
       let data = await Profile.findOne({
-        include : User,
-        where : {
-            IdUser : user
-        }
-      })
+        include: User,
+        where: {
+          IdUser: user,
+        },
+      });
       let fullName = Profile.fullName(data.firstName, data.lastName);
       res.render("ProvileId", { user, data, fullName });
     } catch (error) {
@@ -57,7 +57,22 @@ class Controller {
   static async cart(req, res) {
     try {
       let user = req.session.userId;
-      res.render("Cart", { user });
+      let data = await ProductHasProfile.findAll({
+        include: [
+          {
+            model: Profile,
+          },
+          {
+            model: Product,
+          },
+        ],
+        where: {
+            IdProfile: user
+        }
+      });
+      console.log(data);
+      res.send(data);
+      //   res.render("Cart", { user });
     } catch (error) {
       res.send(error);
     }
@@ -91,7 +106,7 @@ class Controller {
       } else {
         res.redirect("/login?error=Email Tidak Terdaftar");
       }
-      console.log(req.session);
+      //   console.log(req.session);
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -109,13 +124,13 @@ class Controller {
 
   static async registered(req, res) {
     try {
-        let user = req.session.userId;
-        let data = req.body;
-        await User.create(data);
-        res.redirect('/')
-        // console.log(data);
+      let user = req.session.userId;
+      let data = req.body;
+      await User.create(data);
+      res.redirect("/");
+      // console.log(data);
     } catch (error) {
-        res.send(error)
+      res.send(error);
     }
   }
 
@@ -128,7 +143,71 @@ class Controller {
     }
   }
 
-  static async 
+  static async editProfile(req, res) {
+    try {
+      let user = req.session.userId;
+      let idParams = req.params.profileid;
+      let data = await Profile.findOne({
+        where: {
+          id: idParams,
+        },
+      });
+      res.render("EditProfile", { data, user });
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
+  static async editProfileRedirect(req, res) {
+    try {
+      let idParams = req.params.profileid;
+      let data = req.body;
+      await Profile.update(
+        { data },
+        {
+          where: {
+            id: idParams,
+          },
+        }
+      );
+      res.redirect("/profile");
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
+  static async addProduct(req, res) {
+    try {
+      let user = req.session.userId;
+      let data = await Category.findAll();
+      res.render("AddProduct", { user, data });
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
+  static async addProductRedirect(req, res) {
+    try {
+      let idParams = req.params.profileid;
+      let user = req.session.userId;
+      let data = req.body;
+      data.IdCategory = +data.IdCategory;
+      data.totalSales = 0;
+      data.IdUser = +idParams;
+    //   res.send(data);
+      await Product.create(data);
+      res.redirect('/product')
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
+  static async delete(req, res) {
+    try {
+    } catch (error) {
+      res.send(error);
+    }
+  }
 }
 
 module.exports = Controller;
