@@ -1,5 +1,6 @@
 const { Product, User, Profile, Category, ProductHasProfile } = require("../models");
 const bcrypt = require("bcryptjs");
+const formatRupiah = require('../helpers/helper');
 
 class Controller {
   static async landingPage(req, res) {
@@ -71,11 +72,13 @@ class Controller {
             IdProfile: user
         }
       });
-      // console.log(data, "data");
-      // console.log(data[0].Profile, "profile");
-      // console.log(data[0].Product, "product");
-      // res.send(data)
-        res.render("Cart", { data, user });
+      // let value = await 
+      let value = 0
+      for(let i = 0; i < data.length; i++) {
+        value += data[i].Product.price;
+      }
+      // res.send({value})
+        res.render("Cart", { data, user, value, formatRupiah });
     } catch (error) {
       console.log(error);
       res.status(500).send('Internal Server Error');
@@ -182,18 +185,23 @@ class Controller {
 
   static async addProduct(req, res) {
     try {
+      let {error} = req.query;
+      let e = [];
+      if(error) {
+        e = error.split(",")
+      }
       let user = req.session.userId;
       let data = await Category.findAll();
-      res.render("AddProduct", { user, data });
+      res.render("AddProduct", { user, data, e });
     } catch (error) {
       res.send(error);
     }
   }
 
   static async addProductRedirect(req, res) {
+    let idParams = req.params.profileid;
+    let user = req.session.userId;
     try {
-      let idParams = req.params.profileid;
-      let user = req.session.userId;
       let data = req.body;
       data.IdCategory = +data.IdCategory;
       data.totalSales = 0;
@@ -202,13 +210,32 @@ class Controller {
       await Product.create(data);
       res.redirect('/product')
     } catch (error) {
-      res.send(error);
+      // let failed = [];
+      // for(let i = 0; i < error.errors.length; i++) {
+      //   failed.push(error.errors[i].message)
+      // }
+      // res.send(failed);
+      const { name } = error;
+      if(name === "SequelizeValidationError") {
+        let result = error.errors.map(el => {
+          return el.message;
+        });
+        res.redirect(`/profile/${idParams}/addProduct?error=${result}`);
+      }
     }
   }
 
   static async delete(req, res) {
     try {
+      let idParams = req.params.id;
+      let data = await ProductHasProfile.destroy({
+        where: {
+          IdProduct: idParams
+        }
+      })
+      res.redirect('/cart');
     } catch (error) {
+      console.log(error)
       res.send(error);
     }
   }

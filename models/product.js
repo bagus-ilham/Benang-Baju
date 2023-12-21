@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
           notNull: {
             msg: `Nama tidak boleh kosong!`,
           },
-          notEmpty: `Nama tidak boleh kosong!`,
+          notEmpty: {
+            msg: `Nama tidak boleh kosong!`},
         },
       },
       totalSales: {
@@ -60,9 +61,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: `Nama tidak boleh kosong!`,
+            msg: `Color tidak boleh kosong!`,
           },
-          notEmpty: `Nama tidak boleh kosong!`,
+          notEmpty: {
+            msg: `Color tidak boleh kosong!`},
         },
       },
       stock: {
@@ -83,10 +85,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: "totalSales tidak boleh kosong!",
+            msg: "Price tidak boleh kosong!",
           },
           notEmpty: {
-            msg: `totalSales tidak boleh kosong!`,
+            msg: `Price tidak boleh kosong!`,
           },
         },
       },
@@ -95,9 +97,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: `Nama tidak boleh kosong!`,
+            msg: `imgURL tidak boleh kosong!`,
           },
-          notEmpty: `Nama tidak boleh kosong!`,
+          notEmpty: {
+            msg: `imgURL tidak boleh kosong!`},
         },
       },
       description: {
@@ -105,9 +108,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: `Nama tidak boleh kosong!`,
+            msg: `Description tidak boleh kosong!`,
           },
-          notEmpty: `Nama tidak boleh kosong!`,
+          notEmpty: {
+            msg: `Description tidak boleh kosong!`},
         },
       },
       IdCategory: DataTypes.INTEGER,

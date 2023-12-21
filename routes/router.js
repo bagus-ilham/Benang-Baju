@@ -23,7 +23,7 @@ router.post("/profile/:profileid/edit", Controller.editProfileRedirect);
 router.get("/profile/:profileid/addProduct", Controller.addProduct);
 router.post("/profile/:profileid/addProduct", Controller.addProductRedirect);
 router.get("/cart", Controller.cart);
-router.get("/cart/delete", Controller.delete)
+router.get("/cart/:id/delete", Controller.delete)
 router.get("/login", loggedIn, Controller.login);
 router.post("/login", Controller.loginProccess);
 router.get("/register", loggedIn, Controller.register);
