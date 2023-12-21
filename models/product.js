@@ -31,12 +31,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: "Stock tidak boleh kosong!",
+            msg: "totalSales tidak boleh kosong!",
           },
           notEmpty: {
-            msg: `Stock tidak boleh kosong!`,
+            msg: `totalSales tidak boleh kosong!`,
           },
-          
         },
       },
       size: {
@@ -44,14 +43,23 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: "Stock tidak boleh kosong!",
+            msg: "Size tidak boleh kosong!",
           },
           notEmpty: {
-            msg: `Stock tidak boleh kosong!`,
+            msg: `Size tidak boleh kosong!`,
           },
         },
       },
-      color: DataTypes.STRING,
+      color: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: `Nama tidak boleh kosong!`,
+          },
+          notEmpty: `Nama tidak boleh kosong!`,
+        },
+      },
       stock: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -65,9 +73,38 @@ module.exports = (sequelize, DataTypes) => {
           min: 1,
         },
       },
-      price: DataTypes.INTEGER,
-      imgUrl: DataTypes.STRING,
-      description: DataTypes.STRING,
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "totalSales tidak boleh kosong!",
+          },
+          notEmpty: {
+            msg: `totalSales tidak boleh kosong!`,
+          },
+        },
+      },
+      imgUrl: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: `Nama tidak boleh kosong!`,
+          },
+          notEmpty: `Nama tidak boleh kosong!`,
+        },
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: `Nama tidak boleh kosong!`,
+          },
+          notEmpty: `Nama tidak boleh kosong!`,
+        },
+      },
       IdCategory: DataTypes.INTEGER,
       IdUser: DataTypes.INTEGER,
     },
