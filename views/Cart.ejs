@@ -3,22 +3,92 @@
 <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
 
 <div class="container">
-  <div style="align-self: stretch; color: black; font-size: 24px; font-family: Maison Neue; font-weight: 600; line-height: 33.24px; word-wrap: break-word;">
+  <div style="
+      align-self: stretch;
+      color: black;
+      font-size: 24px;
+      font-family: Maison Neue;
+      font-weight: 600;
+      line-height: 33.24px;
+      word-wrap: break-word;
+    ">
     Your Cart
   </div>
   <!-- start -->
-  <% data.forEach(element=> { %> 
-  <div style="align-self: stretch; height: 266px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex;">
-    <div style="align-self: stretch; color: black; font-size: 24px; font-family: Maison Neue; font-weight: 600; line-height: 33.24px; word-wrap: break-word; "></div>
-    <div style=" align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex;">
+  <% let temp = 0 %>
+  <% data.forEach(element=> { %> <% console.log(element.Product.dataValues) %>
+    <% temp += element.price %>
+    <% console.log(element) %>
+  <div style="
+      align-self: stretch;
+      height: 266px;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 16px;
+      display: flex;
+    ">
+    <div style="
+        align-self: stretch;
+        color: black;
+        font-size: 24px;
+        font-family: Maison Neue;
+        font-weight: 600;
+        line-height: 33.24px;
+        word-wrap: break-word;
+      "></div>
+    <div style="
+        align-self: stretch;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 16px;
+        display: inline-flex;
+      ">
       <img style="width: 70px; height: 100px" src="<%= element.Product.dataValues.imgUrl %>" />
-      <div style="flex: 1 1 0; align-self: stretch; flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex; ">
-        <div style=" align-self: stretch; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;">
-          <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex;">
-            <div style=" align-self: stretch; color: black; font-size: 20px; font-family: Maison Neue; font-weight: 400;line-height: 16.8px; letter-spacing: 1.4px; word-wrap: break-word;">
+      <div style="
+          flex: 1 1 0;
+          align-self: stretch;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          display: inline-flex;
+        ">
+        <div style="
+            align-self: stretch;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          ">
+          <div style="
+              flex: 1 1 0;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              display: inline-flex;
+            ">
+            <div style="
+                align-self: stretch;
+                color: black;
+                font-size: 20px;
+                font-family: Maison Neue;
+                font-weight: 400;
+                line-height: 16.8px;
+                letter-spacing: 1.4px;
+                word-wrap: break-word;
+              ">
               <%= element.Product.dataValues.name %>
             </div>
-            <div style="align-self: stretch; color: #737373; font-size: 16px; font-family: Maison Neue; font-weight: 400; line-height: 16px; letter-spacing: 0.2px; word-wrap: break-word;">
+            <div style="
+                align-self: stretch;
+                color: #737373;
+                font-size: 16px;
+                font-family: Maison Neue;
+                font-weight: 400;
+                line-height: 16px;
+                letter-spacing: 0.2px;
+                word-wrap: break-word;
+              ">
               <%= element.Product.dataValues.color %>
             </div>
           </div>
@@ -30,10 +100,35 @@
             </a>
           </div>
         </div>
-        <div style="align-self: stretch; justify-content: space-between; align-items: center; display: inline-flex;">
-          <div style=" flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex;">
-            <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 2px; display: inline-flex;">
-              <div style="color: #262626; font-size: 16px; font-family: Maison Neue; font-weight: 600; line-height: 16px; letter-spacing: 0.2px; word-wrap: break-word;">
+        <div style="
+            align-self: stretch;
+            justify-content: space-between;
+            align-items: center;
+            display: inline-flex;
+          ">
+          <div style="
+              flex: 1 1 0;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              display: inline-flex;
+            ">
+            <div style="
+                align-self: stretch;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 2px;
+                display: inline-flex;
+              ">
+              <div style="
+                  color: #262626;
+                  font-size: 16px;
+                  font-family: Maison Neue;
+                  font-weight: 600;
+                  line-height: 16px;
+                  letter-spacing: 0.2px;
+                  word-wrap: break-word;
+                ">
                 <%= element.Product.formatAngka %>
               </div>
             </div>
@@ -43,14 +138,13 @@
     </div>
   </div>
 
-  <% }) %>
-
+  
   <script>
     function downloadInvoice() {
       var data = {
         // If not using the free version, set your API key
         // "apiKey": "123abc", // Get apiKey through: https://app.budgetinvoice.com/register
-  
+
         // Customize enables you to provide your own templates
         // Please review the documentation for instructions and examples
         customize: {
@@ -75,11 +169,11 @@
         },
         // Your recipient
         client: {
-          company: "<%= data[0].Profile.name%>",
-          address: "<%= data[0].Profile.address%>",
+          company: "<%=element.Profile.firtsName%> <%=element.Profile.lastName%>",
+          address: "<%=element.Profile.address%>",
           zip: "4567 CD",
-          city: "<%= data[0].Profile.address%>",
-          country: "<%=data[0].Profile.address%>",
+          city: "<%=element.Profile.address%>",
+          country: "<%=element.Profile.address%>",
           // "custom1": "custom value 1",
           // "custom2": "custom value 2",
           // "custom3": "custom value 3"
@@ -98,11 +192,11 @@
             quantity: 1,
             description: "Product 1",
             "tax-rate": 6,
-            price: "<%= data[0].Profile.formatAngka %>",
+            price: "<%= element.Product.formatAngka %>",
           },
         ],
         // The message you would like to display on the bottom of your invoice
-        "bottom-notice": "Kindly pay your invoice within 1 days.",
+        "bottom-notice": "Kindly pay your invoice within 15 days.",
         // Settings to customize your invoice
         settings: {
           currency: "USD", // See documentation 'Locales and Currency' for more info. Leave empty for no currency.
@@ -131,19 +225,19 @@
           // "vat": "btw" // Defaults to 'vat'
         },
       };
-  
+
       //Create your invoice! Easy!
       easyinvoice.createInvoice(data, function(result) {
         //The response will contain a base64 encoded PDF file
         console.log("PDF base64 string: ", result.pdf);
         easyinvoice.download("invoice.pdf");
       });
-
-      console.log("tes masuk");
     }
   </script>
+  <% }) %>
+
   <div>
-    <button onclick="downloadInvoice()" type="button">Download Invoice</button>
+    <button onclick="downloadInvoice()">Download Invoice</button>
   </div>
 
   <div>Total price: <%= formatRupiah(value) %><br /></div>
