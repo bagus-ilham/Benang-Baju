@@ -7,6 +7,7 @@ const {
 } = require("../models");
 const bcrypt = require("bcryptjs");
 const formatRupiah = require("../helpers/helper");
+const { Op } = require("sequelize");
 
 class Controller {
   static async landingPage(req, res) {
@@ -21,11 +22,26 @@ class Controller {
 
   static async products(req, res) {
     try {
-      let data = await Product.findAll();
+      const { search } = req.query;
+      let data = [];
+      if (!search) {
+        data = await Product.findAll();
+        console.log(data);
+      } else {
+        data = await Product.findAll({
+          where: {
+            name: {
+              [Op.iLike]: `%${search}%`,
+            },
+          },
+        });
+        console.log(data);
+      }
       let user = req.session.userId;
       // res.send(data);
       res.render("HomeProduct", { data, user });
     } catch (error) {
+      console.log(error);
       res.send(error);
     }
   }
@@ -59,8 +75,8 @@ class Controller {
       res.render("ProvileId", { user, data, fullName });
     } catch (error) {
       console.log(error);
-      res.send(error)
-      // res.redirect("/login");
+      // res.send(error)
+      res.redirect("/login");
     }
   }
 
@@ -89,10 +105,9 @@ class Controller {
       // res.send({value})
       res.render("Cart", { data, user, value, formatRupiah });
     } catch (error) {
-      
       console.log(error);
-      res.send(error)
-      // res.redirect("/login");
+      // res.send(error)
+      res.redirect("/login");
     }
   }
 
@@ -144,7 +159,7 @@ class Controller {
     try {
       let user = req.session.userId;
       let data = req.body;
-      await User.create(data, {user});
+      await User.create(data, { user });
       res.redirect("/");
       // console.log(data);
     } catch (error) {
