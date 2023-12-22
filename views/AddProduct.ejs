@@ -1,6 +1,6 @@
 <%- include("./partials/_header") %>
 
-
+<div class="container">
   <% e.forEach(el => { %>
     <p><%= el %></p>
     <% }) %>
@@ -73,7 +73,8 @@
     <label for="description">Example textarea</label>
     <textarea class="form-control" rows="3" name="description"></textarea>
   </div>
+  <br>
   <button class="btn btn-secondary" type="submit">Submit</button>
 </form>
-
+</div>
 <%- include("./partials/_footer") %>

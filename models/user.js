@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     {
         hooks: {
             afterCreate: async (value, options) => {
-                await sequelize.models.profile.create({
+                await sequelize.models.Profile.create({
                     IdUser: value.id
                 })
             }

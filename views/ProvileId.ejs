@@ -55,12 +55,11 @@
               </div>
             </div>
           </div>
-
           <% if (data.User.role == "admin") { %>
-            <button onclick="location.href='/profile/<%= data.id %>/addProduct'">add product</button>
+            <button class="btn btn-secondary" onclick="location.href='/profile/<%= data.id %>/addProduct'">add product</button>
           <% } %>
           
-          <button onclick="location.href='/profile/<%= data.id %>/edit'">edit profile</button>
+          <button class="btn btn-secondary" onclick="location.href='/profile/<%= data.id %>/edit'">edit profile</button>
         </div>
       </div>
     </div>

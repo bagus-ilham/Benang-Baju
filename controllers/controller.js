@@ -1,6 +1,12 @@
-const { Product, User, Profile, Category, ProductHasProfile } = require("../models");
+const {
+  Product,
+  User,
+  Profile,
+  Category,
+  ProductHasProfile,
+} = require("../models");
 const bcrypt = require("bcryptjs");
-const formatRupiah = require('../helpers/helper');
+const formatRupiah = require("../helpers/helper");
 
 class Controller {
   static async landingPage(req, res) {
@@ -42,6 +48,7 @@ class Controller {
   static async profile(req, res) {
     try {
       let user = req.session.userId;
+      console.log(user);
       let data = await Profile.findOne({
         include: User,
         where: {
@@ -51,7 +58,9 @@ class Controller {
       let fullName = Profile.fullName(data.firstName, data.lastName);
       res.render("ProvileId", { user, data, fullName });
     } catch (error) {
-      res.send(error);
+      console.log(error);
+      res.send(error)
+      // res.redirect("/login");
     }
   }
 
@@ -69,19 +78,21 @@ class Controller {
           },
         ],
         where: {
-            IdProfile: user
-        }
+          IdProfile: user,
+        },
       });
-      // let value = await 
-      let value = 0
-      for(let i = 0; i < data.length; i++) {
+      // let value = await
+      let value = 0;
+      for (let i = 0; i < data.length; i++) {
         value += data[i].Product.price;
       }
       // res.send({value})
-        res.render("Cart", { data, user, value, formatRupiah });
+      res.render("Cart", { data, user, value, formatRupiah });
     } catch (error) {
+      
       console.log(error);
-      res.status(500).send('Internal Server Error');
+      res.send(error)
+      // res.redirect("/login");
     }
   }
 
@@ -133,10 +144,11 @@ class Controller {
     try {
       let user = req.session.userId;
       let data = req.body;
-      await User.create(data);
+      await User.create(data, {user});
       res.redirect("/");
       // console.log(data);
     } catch (error) {
+      console.log(error);
       res.send(error);
     }
   }
@@ -170,13 +182,18 @@ class Controller {
       let idParams = req.params.profileid;
       let data = req.body;
       await Profile.update(
-        { data },
+        {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          address: data.address,
+        },
         {
           where: {
             id: idParams,
           },
         }
       );
+      console.log(data);
       res.redirect("/profile");
     } catch (error) {
       res.send(error);
@@ -185,10 +202,10 @@ class Controller {
 
   static async addProduct(req, res) {
     try {
-      let {error} = req.query;
+      let { error } = req.query;
       let e = [];
-      if(error) {
-        e = error.split(",")
+      if (error) {
+        e = error.split(",");
       }
       let user = req.session.userId;
       let data = await Category.findAll();
@@ -206,9 +223,9 @@ class Controller {
       data.IdCategory = +data.IdCategory;
       data.totalSales = 0;
       data.IdUser = +idParams;
-    //   res.send(data);
+      //   res.send(data);
       await Product.create(data);
-      res.redirect('/product')
+      res.redirect("/product");
     } catch (error) {
       // let failed = [];
       // for(let i = 0; i < error.errors.length; i++) {
@@ -216,8 +233,8 @@ class Controller {
       // }
       // res.send(failed);
       const { name } = error;
-      if(name === "SequelizeValidationError") {
-        let result = error.errors.map(el => {
+      if (name === "SequelizeValidationError") {
+        let result = error.errors.map((el) => {
           return el.message;
         });
         res.redirect(`/profile/${idParams}/addProduct?error=${result}`);
@@ -230,12 +247,12 @@ class Controller {
       let idParams = req.params.id;
       let data = await ProductHasProfile.destroy({
         where: {
-          IdProduct: idParams
-        }
-      })
-      res.redirect('/cart');
+          IdProduct: idParams,
+        },
+      });
+      res.redirect("/cart");
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.send(error);
     }
   }

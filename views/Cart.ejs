@@ -3,288 +3,148 @@
 <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
 
 <div class="container">
-  <div
-    style="
-      align-self: stretch;
-      color: black;
-      font-size: 24px;
-      font-family: Maison Neue;
-      font-weight: 600;
-      line-height: 33.24px;
-      word-wrap: break-word;
-    "
-  >
+  <div style="align-self: stretch; color: black; font-size: 24px; font-family: Maison Neue; font-weight: 600; line-height: 33.24px; word-wrap: break-word;">
     Your Cart
   </div>
   <!-- start -->
-  <% data.forEach(element => { %> <% console.log(element.Product.dataValues) %>
-  <div
-    style="
-      align-self: stretch;
-      height: 266px;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 16px;
-      display: flex;
-    "
-  >
-    <div
-      style="
-        align-self: stretch;
-        color: black;
-        font-size: 24px;
-        font-family: Maison Neue;
-        font-weight: 600;
-        line-height: 33.24px;
-        word-wrap: break-word;
-      "
-    ></div>
-    <div
-      style="
-        align-self: stretch;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 16px;
-        display: inline-flex;
-      "
-    >
-      <img
-        style="width: 70px; height: 100px"
-        src="<%= element.Product.dataValues.imgUrl %>"
-      />
-      <div
-        style="
-          flex: 1 1 0;
-          align-self: stretch;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: flex-start;
-          display: inline-flex;
-        "
-      >
-        <div
-          style="
-            align-self: stretch;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 12px;
-            display: inline-flex;
-          "
-        >
-          <div
-            style="
-              flex: 1 1 0;
-              flex-direction: column;
-              justify-content: flex-start;
-              align-items: flex-start;
-              display: inline-flex;
-            "
-          >
-            <div
-              style="
-                align-self: stretch;
-                color: black;
-                font-size: 20px;
-                font-family: Maison Neue;
-                font-weight: 400;
-                line-height: 16.8px;
-                letter-spacing: 1.4px;
-                word-wrap: break-word;
-              "
-            >
+  <% data.forEach(element=> { %> 
+  <div style="align-self: stretch; height: 266px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex;">
+    <div style="align-self: stretch; color: black; font-size: 24px; font-family: Maison Neue; font-weight: 600; line-height: 33.24px; word-wrap: break-word; "></div>
+    <div style=" align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex;">
+      <img style="width: 70px; height: 100px" src="<%= element.Product.dataValues.imgUrl %>" />
+      <div style="flex: 1 1 0; align-self: stretch; flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex; ">
+        <div style=" align-self: stretch; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;">
+          <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex;">
+            <div style=" align-self: stretch; color: black; font-size: 20px; font-family: Maison Neue; font-weight: 400;line-height: 16.8px; letter-spacing: 1.4px; word-wrap: break-word;">
               <%= element.Product.dataValues.name %>
             </div>
-            <div
-              style="
-                align-self: stretch;
-                color: #737373;
-                font-size: 16px;
-                font-family: Maison Neue;
-                font-weight: 400;
-                line-height: 16px;
-                letter-spacing: 0.2px;
-                word-wrap: break-word;
-              "
-            >
+            <div style="align-self: stretch; color: #737373; font-size: 16px; font-family: Maison Neue; font-weight: 400; line-height: 16px; letter-spacing: 0.2px; word-wrap: break-word;">
               <%= element.Product.dataValues.color %>
             </div>
           </div>
           <div style="width: 20px; height: 20px; position: relative">
             <a href="/cart/<%= element.Product.dataValues.id %>/delete">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="bi bi-trash3"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
               </svg>
             </a>
           </div>
         </div>
-        <div
-          style="
-            align-self: stretch;
-            justify-content: space-between;
-            align-items: center;
-            display: inline-flex;
-          "
-        >
-          <div
-            style="
-              flex: 1 1 0;
-              flex-direction: column;
-              justify-content: flex-start;
-              align-items: flex-start;
-              display: inline-flex;
-            "
-          >
-            <div
-              style="
-                align-self: stretch;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 2px;
-                display: inline-flex;
-              "
-            >
-              <div
-                style="
-                  color: #262626;
-                  font-size: 16px;
-                  font-family: Maison Neue;
-                  font-weight: 600;
-                  line-height: 16px;
-                  letter-spacing: 0.2px;
-                  word-wrap: break-word;
-                "
-              >
-              <%= element.Product.formatAngka %>
+        <div style="align-self: stretch; justify-content: space-between; align-items: center; display: inline-flex;">
+          <div style=" flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex;">
+            <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 2px; display: inline-flex;">
+              <div style="color: #262626; font-size: 16px; font-family: Maison Neue; font-weight: 600; line-height: 16px; letter-spacing: 0.2px; word-wrap: break-word;">
+                <%= element.Product.formatAngka %>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-<% }) %>
+  </div>
 
-<div>
-  <button onclick="downloadInvoice()">Download Invoice</button>
-</div>
-<script>
-    function downloadInvoice(){   
-           var data = {
-    // If not using the free version, set your API key
-    // "apiKey": "123abc", // Get apiKey through: https://app.budgetinvoice.com/register
-    
-    // Customize enables you to provide your own templates
-    // Please review the documentation for instructions and examples
-    "customize": {
-        //  "template": fs.readFileSync('template.html', 'base64') // Must be base64 encoded html 
-    },
-    "images": {
-        // The logo on top of your invoice
-        "logo": "https://public.budgetinvoice.com/img/logo_en_original.png",
-        // The invoice background
-        "background": "https://public.budgetinvoice.com/img/watermark-draft.jpg"
-    },
-    // Your own data
-    "sender": {
-        "company": "Sample Corp",
-        "address": "Sample Street 123",
-        "zip": "1234 AB",
-        "city": "Sampletown",
-        "country": "Samplecountry"
-        //"custom1": "custom value 1",
-        //"custom2": "custom value 2",
-        //"custom3": "custom value 3"
-    },
-    // Your recipient
-    "client": {
-        "company": "Client Corp",
-        "address": "Clientstreet 456",
-        "zip": "4567 CD",
-        "city": "Clientcity",
-        "country": "Clientcountry"
-        // "custom1": "custom value 1",
-        // "custom2": "custom value 2",
-        // "custom3": "custom value 3"
-    },
-    "information": {
-        // Invoice number
-        "number": "2021.0001",
-        // Invoice data
-        "date": "12-12-2021",
-        // Invoice due date
-        "due-date": "31-12-2021"
-    },
-    // The products you would like to see on your invoice
-    // Total values are being calculated automatically
-    "products": [
-        {
-            "quantity": 2,
-            "description": "Product 1",
-            "tax-rate": 6,
-            "price": 33.87
-        },
-        {
-            "quantity": 4.1,
-            "description": "Product 2",
-            "tax-rate": 6,
-            "price": 12.34
-        },
-        {
-            "quantity": 4.5678,
-            "description": "Product 3",
-            "tax-rate": 21,
-            "price": 6324.453456
-        }
-    ],
-    // The message you would like to display on the bottom of your invoice
-    "bottom-notice": "Kindly pay your invoice within 15 days.",
-    // Settings to customize your invoice
-    "settings": {
-        "currency": "USD", // See documentation 'Locales and Currency' for more info. Leave empty for no currency.
-        // "locale": "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')        
-        // "margin-top": 25, // Defaults to '25'
-        // "margin-right": 25, // Defaults to '25'
-        // "margin-left": 25, // Defaults to '25'
-        // "margin-bottom": 25, // Defaults to '25'
-        // "format": "A4", // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
-        // "height": "1000px", // allowed units: mm, cm, in, px
-        // "width": "500px", // allowed units: mm, cm, in, px
-        // "orientation": "landscape", // portrait or landscape, defaults to portrait
-    },
-    // Translate your invoice to your preferred language
-    "translate": {
-        // "invoice": "FACTUUR",  // Default to 'INVOICE'
-        // "number": "Nummer", // Defaults to 'Number'
-        // "date": "Datum", // Default to 'Date'
-        // "due-date": "Verloopdatum", // Defaults to 'Due Date'
-        // "subtotal": "Subtotaal", // Defaults to 'Subtotal'
-        // "products": "Producten", // Defaults to 'Products'
-        // "quantity": "Aantal", // Default to 'Quantity'
-        // "price": "Prijs", // Defaults to 'Price'
-        // "product-total": "Totaal", // Defaults to 'Total'
-        // "total": "Totaal", // Defaults to 'Total'
-        // "vat": "btw" // Defaults to 'vat'
-    },
-};
+  <% }) %>
 
-//Create your invoice! Easy!
-easyinvoice.createInvoice(data, function (result) {
-    //The response will contain a base64 encoded PDF file
-    console.log('PDF base64 string: ', result.pdf);
-    easyinvoice.download("invoice.pdf")
-});
+  <script>
+    function downloadInvoice() {
+      var data = {
+        // If not using the free version, set your API key
+        // "apiKey": "123abc", // Get apiKey through: https://app.budgetinvoice.com/register
+  
+        // Customize enables you to provide your own templates
+        // Please review the documentation for instructions and examples
+        customize: {
+          //  "template": fs.readFileSync('template.html', 'base64') // Must be base64 encoded html
+        },
+        images: {
+          // The logo on top of your invoice
+          logo: "/image/logobenangbaju.jpeg",
+          // The invoice background
+          background: "https://public.budgetinvoice.com/img/watermark-draft.jpg",
+        },
+        // Your own data
+        sender: {
+          company: "BenangBaju",
+          address: "Bandung",
+          zip: "1234 AB",
+          city: "Bandung",
+          country: "Indonesia",
+          //"custom1": "custom value 1",
+          //"custom2": "custom value 2",
+          //"custom3": "custom value 3"
+        },
+        // Your recipient
+        client: {
+          company: "<%= data[0].Profile.name%>",
+          address: "<%= data[0].Profile.address%>",
+          zip: "4567 CD",
+          city: "<%= data[0].Profile.address%>",
+          country: "<%=data[0].Profile.address%>",
+          // "custom1": "custom value 1",
+          // "custom2": "custom value 2",
+          // "custom3": "custom value 3"
+        },
+        information: {
+          // Invoice number
+          number: "2021.0001",
+          // Invoice data
+          date: "22-12-2023",
+          // Invoice due date
+          "due-date": "22-12-2023",
+        },
+        // The products you would like to see on your invoice
+        // Total values are being calculated automatically
+        products: [{
+            quantity: 1,
+            description: "Product 1",
+            "tax-rate": 6,
+            price: "<%= data[0].Profile.formatAngka %>",
+          },
+        ],
+        // The message you would like to display on the bottom of your invoice
+        "bottom-notice": "Kindly pay your invoice within 1 days.",
+        // Settings to customize your invoice
+        settings: {
+          currency: "USD", // See documentation 'Locales and Currency' for more info. Leave empty for no currency.
+          // "locale": "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')
+          // "margin-top": 25, // Defaults to '25'
+          // "margin-right": 25, // Defaults to '25'
+          // "margin-left": 25, // Defaults to '25'
+          // "margin-bottom": 25, // Defaults to '25'
+          // "format": "A4", // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
+          // "height": "1000px", // allowed units: mm, cm, in, px
+          // "width": "500px", // allowed units: mm, cm, in, px
+          // "orientation": "landscape", // portrait or landscape, defaults to portrait
+        },
+        // Translate your invoice to your preferred language
+        translate: {
+          // "invoice": "FACTUUR",  // Default to 'INVOICE'
+          // "number": "Nummer", // Defaults to 'Number'
+          // "date": "Datum", // Default to 'Date'
+          // "due-date": "Verloopdatum", // Defaults to 'Due Date'
+          // "subtotal": "Subtotaal", // Defaults to 'Subtotal'
+          // "products": "Producten", // Defaults to 'Products'
+          // "quantity": "Aantal", // Default to 'Quantity'
+          // "price": "Prijs", // Defaults to 'Price'
+          // "product-total": "Totaal", // Defaults to 'Total'
+          // "total": "Totaal", // Defaults to 'Total'
+          // "vat": "btw" // Defaults to 'vat'
+        },
+      };
+  
+      //Create your invoice! Easy!
+      easyinvoice.createInvoice(data, function(result) {
+        //The response will contain a base64 encoded PDF file
+        console.log("PDF base64 string: ", result.pdf);
+        easyinvoice.download("invoice.pdf");
+      });
+
+      console.log("tes masuk");
     }
   </script>
+  <div>
+    <button onclick="downloadInvoice()" type="button">Download Invoice</button>
+  </div>
 
   <div>Total price: <%= formatRupiah(value) %><br /></div>
 
